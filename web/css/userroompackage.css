@@ -1,0 +1,212 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #ffffff; /* Solid white background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align from the top */
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* Ensure body is positioned relative */
+    z-index: 1; /* Bring body above other elements if necessary */
+}
+
+.header, .main-content, .room-section, .container {
+    background-color: transparent; /* Set to transparent to not cover the body */
+    z-index: 0; /* Keep these below the body */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center room sections */
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the main content */
+}
+
+
+
+/* Room Section Styles */
+.room-section {
+    background: #ffffff; /* Keep card white */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    margin: 20px;
+    width: calc(33% - 40px); /* Ensure proper spacing */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.room-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.room-section img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.room-section:hover img {
+    transform: scale(1.05);
+}
+
+.room-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.room-title {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.room-price {
+    font-size: 18px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.booking-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.booking-button:hover {
+    background-color: #66bb6a;
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .room-section {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .room-section {
+        width: calc(100% - 40px);
+    }
+
+    .room-title {
+        font-size: 18px;
+    }
+
+    .room-price {
+        font-size: 16px;
+    }
+}
+
+/* Additional Styles (e.g., Booking Form) */
+.container {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+/* Hero Section - Full Screen Background */
+.hero-section {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('../uploads/your-background-image.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+}
+
+/* Ensures the main content appears below the hero section */
+.main-content {
+    margin-top: -50px; /* Overlap effect */
+    padding: 50px 20px;
+    background: white;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Smooth Scroll Effect */
+html {
+    scroll-behavior: smooth;
+}

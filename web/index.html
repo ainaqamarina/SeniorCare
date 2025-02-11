@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Senior Care Coordination System</title>
+           <link rel="icon" href="images/seniorcarebg3.png" type="image/png"> 
+           
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: 'Roboto', sans-serif; /* Use Roboto font */
+            }
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 10;
+                padding: 20px 45px; /* Added horizontal padding */ 
+                transition: background-color 0.9s ease; /* Smooth transition for background color */
+            }
+            .logo {
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+            }
+            ul {
+                list-style: none;
+                display: flex;
+                padding: 0; /* Reset padding */
+            }
+            li {
+                margin: 0 15px;
+                font-size: 18px;
+            }
+            li a {
+                text-decoration: none;
+                color: white; /* Default link color */
+            }
+
+            li a:hover {
+                color: #658735; /* Change text color on hover */
+                text-shadow: 0 0 10px rgba(101, 135, 53, 0.8), 0 0 20px rgba(101, 135, 53, 0.6); /* Glowing effect */
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            .hero {
+                background: url('images/seniorcarebg3.png') no-repeat center center/cover;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                text-align: left; /* Align text to the left */
+                color: white;
+                position: relative;
+                padding: 20px;
+            }
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+            }
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                max-width: 600px;
+                padding: 20px; /* Add padding for spacing */
+            }
+            .hero-content h1 {
+                font-size: 3em;
+                margin: 0;
+                font-weight: 600; /* Make the heading bold */
+            }
+            .hero-content p {
+                font-size: 1.2em;
+                margin: 10px 0;
+                line-height: 1.5; /* Better line spacing */
+            }
+            .hero .btn {
+                display: inline-block;
+                padding: 12px 30px; /* Increased padding */
+                background: #658735;
+                color: white;
+                border-radius: 50px;
+                text-decoration: none;
+                margin-top: 20px;
+                transition: background 0.3s;
+                font-size: 1.2em;
+                font-weight: 700; /* Bold button text */
+            }
+            .hero .btn:hover {
+                background: #c7ddb5;
+                color: #658735;
+            }
+            /*    section*/
+            section {
+                padding: 60px 20px;
+                text-align: center;
+            }
+
+            footer {
+                background-color: #658735; /* Dark green background */
+                color: white; /* White text color */
+                text-align: center; /* Centered text */
+                padding: 15px 0; /* Vertical padding */
+                position: relative; /* Relative positioning */
+                width: 100%; /* Full width */
+                bottom: 0; /* Stick to bottom */
+            }
+
+            /* About Section */
+            #about {
+                position: relative; /* Allow positioning of pseudo-elements */
+                text-align: center; /* Center align the heading */
+                padding: 60px 20px;
+                height: 100vh; /* Full viewport height */
+                overflow: hidden; /* Hide overflow for shapes */
+            }
+
+            #about h1 {
+                font-size: 2.5em;
+                margin-bottom: 90px; /* Adjusted for better spacing */
+            }
+
+            /* Geometric Shapes */
+            #about::before, #about::after {
+                content: '';
+                position: absolute;
+                border-radius: 50%; /* Create circles */
+                width: 300px; /* Size of the circles */
+                height: 300px;
+                background: rgba(101, 135, 53, 0.1); /* Light green for the background */
+                z-index: 0; /* Behind the content */
+            }
+
+            #about::before {
+                left: -150px; /* Position left */
+                top: 50px; /* Position down */
+            }
+
+            #about::after {
+                right: -150px; /* Position right */
+                bottom: -30px; /* Position up */
+            }
+
+            /* Container to hold image & text */
+            .about-container {
+                display: flex;  
+                align-items: center;  /* Align items in the center vertically */
+                justify-content: center;
+                max-width: 1200px;
+                margin: 0 auto; /* Center the content */
+                gap: 70px; /* Space between image and text */
+                position: relative; /* Position relative for layering */
+                z-index: 1; /* Bring content above shapes */
+            }
+
+            .about-image {
+                flex: 1;
+                text-align: center; /* Center the image */
+            }
+
+            .image-back {
+                max-width: 100%;
+                height: auto;
+                border-radius: 20px; /* Set rounded corners for the image */
+                transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for scale and shadow */
+            }
+
+            .about-image:hover .image-back {
+                transform: scale(1.0); /* Zoom in effect on hover */
+                box-shadow: 0 0 20px rgba(101, 135, 53, 0.8), 0 0 30px rgba(101, 135, 53, 0.6); /* Green glow effect */
+            }
+            /* Text on the right */
+            .about-text {
+                flex: 1;
+                text-align: left;
+            }
+
+            .about-text h2 {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+
+            .about-text p {
+                text-align: justify;
+                line-height: 1.6;
+                max-width: 600px;
+            }
+
+            .fade-in {
+                opacity: 0; /* Start invisible */
+                transform: translateY(50px); /* Start slightly lower */
+                transition: opacity 1.6s ease-in-out, transform 1.6s ease-in-out; /* Smooth transition */
+            }
+
+            .fade-in.visible {
+                opacity: 1; /* Fully visible */
+                transform: translateY(0); /* Move to original position */
+            }
+
+            /* New class for the scrolled navbar */
+            .scrolled {
+                padding: 10px 45px; /* Reduced padding for smaller height */
+                background-color: rgba(101, 135, 53, 0.9); /* Keep the background color */
+                transition: padding 0.9s ease; /* Smooth transition for padding change */
+
+            }
+            /* Scrolled Navbar link hover */
+            .scrolled li a:hover {
+                color: black; /* Ensure that the text stays white when scrolled */
+            }
+
+            /* Service Section */
+            #service {
+                position: relative; /* Allow positioning of pseudo-elements */
+                text-align: center; /* Center align the heading */
+                padding: 60px 20px;
+                height: 100vh; /* Full viewport height */
+                background-color: #f9f9f9; /* Light background color */
+
+            }
+
+            #service h1 {
+                font-size: 2.5em;
+                margin-bottom: 60px; /* Adjusted for better spacing */
+            }
+
+            .service-container {
+                display: flex; /* Use flexbox for layout */
+                justify-content: center; /* Center items */
+                gap: 30px; /* Space between items */
+                flex-wrap: wrap; /* Allow wrapping */
+                padding: 0 20px; /* Horizontal padding for the container */
+            }
+
+            .service-item {
+                background: white; /* White background for each service item */
+                border-radius: 10px; /* Rounded corners */
+                padding: 20px; /* Padding inside items */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                width: calc(33.33% - 20px); /* Each item takes up one-third of the row, minus gap */
+                transition: transform 0.3s, box-shadow 0.3s; /* Smooth transformation and shadow */
+            }
+
+            .service-item:hover {
+                transform: translateY(-5px); /* Lift effect on hover */
+                box-shadow: 0 0 20px rgba(101, 135, 53, 0.8), 0 0 30px rgba(101, 135, 53, 0.6); /* Green glow effect */
+            }
+            .service-item:hover {
+                transform: translateY(-5px); /* Lift effect on hover */
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .service-item {
+                    width: calc(50% - 20px); /* Two items per row on smaller screens */
+                }
+            }
+
+            @media (max-width: 480px) {
+                .service-item {
+                    width: 100%; /* One item per row on very small screens */
+                }
+            }
+
+            .service-item i {
+                font-size: 40px; /* Size of the icon */
+                color: #658735; /* Icon color */
+                margin-bottom: 10px; /* Space between icon and text */
+            }
+
+            .service-item h3 {
+                font-size: 1.5em; /* Heading size */
+                margin-bottom: 10px; /* Space below heading */
+                color: black; /* Heading color */
+            }
+
+            .service-item p {
+                color: #555; /* Text color */
+                line-height: 1.6; /* Line height for readability */
+            }
+            #contact {
+                position: relative; /* Allow positioning of pseudo-elements */
+                padding: 60px 20px;
+                text-align: center; /* Set text alignment to center */
+                overflow: hidden; /* Hide overflow for shapes */
+                background: url('images/seniorcarebg3.png') no-repeat center center/cover; /* Set background image */
+            }
+
+            #contact::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.8); /* White overlay with transparency */
+                z-index: 0; /* Behind the content */
+            }
+
+            #contact h1 {
+                font-size: 2.5em;
+                margin-bottom: 20px; /* Adjusted for better spacing */
+                line-height: 1.5; /* Set line height */
+                z-index: 1; /* Ensure it's above the overlay */
+                position: relative; /* Position relative for z-index to work */
+            }
+
+            #contact p {
+                font-size: 1em; /* Match the font size of the other paragraphs */
+                margin-bottom: 30px; /* Space below paragraph */
+                line-height: 1.5; /* Set line height */
+                z-index: 1; /* Ensure it's above the overlay */
+                position: relative; /* Position relative for z-index to work */
+            }
+
+            .contact-container {
+                position: relative; /* Position relative for layering */
+                z-index: 1; /* Bring content above shapes */
+                display: flex; /* Align items side by side */
+                justify-content: space-between; /* Space between contact info and form */
+                max-width: 1000px; /* Limit the width of the container */
+                margin: 20px auto; /* Center the container */
+                padding: 20px; /* Add some padding */
+            }
+
+            .contact-info-container {
+                flex: 1; /* Take up remaining space */
+                margin-right: 20px; /* Space between the two containers */
+                background-color: #f9f9f9; /* Light background for the container */
+                border-radius: 10px; /* Rounded corners */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                padding: 20px; /* Add padding */
+
+            }
+
+            .contact-info {
+                display: flex;
+                flex-direction: column; /* Stack the info items vertically */
+                gap: 20px; /* Space between items */
+                margin-top: 20px;
+            }
+
+            .info-item {
+                display: flex; /* Use flexbox for alignment */
+                align-items: center; /* Center items vertically */
+                gap: 15px; /* Space between icon and text */
+            }
+
+            .info-item i {
+                font-size: 24px; /* Size of the icon */
+                color: #fff; /* Icon color */
+                background-color: #658735; /* Background color for the circle */
+                border-radius: 50%; /* Make it circular */
+                width: 50px; /* Width of the circle */
+                height: 50px; /* Height of the circle */
+                display: flex; /* Use flexbox for centering the icon */
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+                margin-top: -30px; /* Move the icon up */
+            }
+
+            .contact-form-container {
+                flex: 1; /* Take up remaining space */
+                max-width: 400px; /* Limit the width of the form */
+                background-color: #fff; /* White background for the form */
+                border-radius: 10px; /* Rounded corners */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                padding: 20px; /* Add padding */
+            }
+            .info-text {
+                text-align: left; /* Align text to the left */
+            }
+
+            .info-text h3 {
+                margin: 0; /* Remove default margin for better alignment */
+                text-align: justify;
+            }
+
+            .info-text p {
+                margin: 0; /* Remove default margin for better alignment */
+                text-align: justify; /* Justify text */
+                font-size: 1em; /* Adjust the size as needed (e.g., 1em, 1.2em, etc.) */
+            }
+            .contact-form h3 {
+                margin-bottom: 20px; /* Space below heading */
+            }
+
+            .contact-form input, 
+            .contact-form textarea {
+                width: 100%; /* Full width */
+                padding: 10px; /* Padding inside fields */
+                margin-bottom: 15px; /* Space below fields */
+                border: 1px solid #ddd; /* Border color */
+                border-radius: 5px; /* Rounded corners */
+            }
+
+
+            .contact-form button {
+                display: inline-block;
+                padding: 12px 30px; /* Increased padding */
+                background: #658735;
+                color: white;
+                border-radius: 50px;
+                text-decoration: none;
+                margin-top: 20px;
+                transition: background 0.3s;
+                font-size: 1em;
+                font-weight: 700; /* Bold button text */
+                border: none; /* Remove default border */
+                outline: none; /* Remove outline on focus */
+            }
+            .contact-form button:hover{
+                background: #c7ddb5;
+                color: #658735;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="logo">SeniorCare</div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="register.jsp">Register</a></li>
+                    <li><a href="login.jsp">Login</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Compassionate Care Enriches Senior Lives</h1>
+                    <p>At SeniorCare, we provide personalized care plans for every individual. Join us today to experience a better tomorrow.</p>
+                    <a href="register.jsp" class="btn">Join Now</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="about">
+            <h1 class="fade-in">
+                <br>
+                <span style="color: black;">About</span> 
+                <span style="color: #658735;">Us</span>
+            </h1>
+            <div class="about-container fade-in" id="about-content">
+                <div class="about-image">
+                    <div class="image-overlay">
+                        <img class="image-back" src="images/seniorcarebg2.png" >
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>
+                        <span style="color: black;">Welcome To </span> 
+                        <span style="color: #658735;">SeniorCare</span>
+                    </h2>
+                    <p>At SeniorCare, we are dedicated to providing compassionate and personalized care that empowers seniors to live their best lives, fostering not only their physical well-being but also enhancing their emotional and social connections. We invite you to learn more about our wide range of services designed to meet the unique needs of each individual, and we encourage you to join us in our mission to make a meaningful difference in the lives of seniors and their families, creating a supportive community where everyone can thrive.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="service">
+            <h1 class="fade-in">
+                <br>
+                <span style="color: black;">Our</span> 
+                <span style="color: #658735;">Services</span>
+            </h1>
+            <div class="service-container fade-in" id="service-content">
+                <div class="service-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Health Monitoring</h3>
+                    <p>We ensure continuous health checks for our residents to maintain their well-being.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Memory Care</h3>
+                    <p>Specialized care for individuals with dementia or Alzheimer's.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Personal Care</h3>
+                    <p>Support for daily activities to ensure dignity and comfort.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Community Engagement</h3>
+                    <p>Encouraging social activities to keep seniors active and connected.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Nutritional Support</h3>
+                    <p>Customized meal plans to meet dietary needs and preferences.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bed"></i>
+                    <h3>Respite Care</h3>
+                    <p>Temporary relief for primary caregivers, providing professional care.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h1>
+                <br>
+                <span style="color: black;">Contact</span> 
+                <span style="color: #658735;">Us</span>
+            </h1>
+
+            <p>Don’t hesitate to reach out for any questions. Simply contact us, and we will be happy to assist you!</p>
+
+            <div class="contact-container">
+                <div class="contact-info-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info-text">
+                                <h3>Address</h3>
+                                <p>3, Jalan P16e, Presint 16, 62150 Putrajaya, <br>Wilayah Persekutuan Putrajaya</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="info-text">
+                                <h3>Phone</h3>
+                                <p>03-6666 7777</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info-text">
+                                <h3>Email</h3>
+                                <p>seniorcare@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" action="mailto:mtn.sofia@Gmail.com" method="POST" enctype="text/plain">
+                        <h3>Send Message</h3>
+                        <input type="text" name="full_name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <textarea name="message" placeholder="Type your message here..." required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2025 SeniorCare. All Rights Reserved.</p>
+        </footer>
+        <script src="script/javascript.js"></script>
+        <script>
+            const aboutContent = document.getElementById('about-content');
+            const serviceContent = document.getElementById('service-content');
+            const contactContent = document.getElementById('contact'); // Use getElementById
+            const aboutHeading = document.querySelector('#about h1');
+            const serviceHeading = document.querySelector('#service h1');
+            const contactHeading = document.querySelector('#contact h1');
+
+            function checkScroll() {
+                const rectAbout = aboutContent.getBoundingClientRect();
+                const rectService = serviceContent.getBoundingClientRect();
+                const rectContact = contactContent.getBoundingClientRect();
+                const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+
+                // Check if the About section is in the viewport
+                if (rectAbout.top <= windowHeight && rectAbout.bottom >= 0) {
+                    aboutContent.classList.add('visible');
+                    aboutHeading.classList.add('visible');
+                } else {
+                    aboutContent.classList.remove('visible');
+                    aboutHeading.classList.remove('visible');
+                }
+
+                // Check if the Services section is in the viewport
+                if (rectService.top <= windowHeight && rectService.bottom >= 0) {
+                    serviceContent.classList.add('visible');
+                    serviceHeading.classList.add('visible');
+                } else {
+                    serviceContent.classList.remove('visible');
+                    serviceHeading.classList.remove('visible');
+                }
+
+                // Check if the Contact section is in the viewport
+                if (rectContact.top <= windowHeight && rectContact.bottom >= 0) {
+                    contactContent.classList.add('visible');
+                    contactHeading.classList.add('visible');
+                } else {
+                    contactContent.classList.remove('visible');
+                    contactHeading.classList.remove('visible');
+                }
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('resize', checkScroll); // Check on resize as well
+            checkScroll(); // Initial check to display the animation if already in view
+        </script>
+    </body>
+</html>

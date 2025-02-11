@@ -1,0 +1,328 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #81c784, #a5d6a7);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #4CAF50;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    position: absolute; /* Ensures the button is placed relative to the parent container */
+    top: 20px; /* Position the button at the top-left */
+    left: 20px; /* Position the button at the top-left */
+}
+
+.back-button:hover {
+    background-color: #66bb6a;
+    transform: scale(1.05);
+}
+
+.room-section {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    width: calc(33% - 40px);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.room-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.room-section img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.room-section:hover img {
+    transform: scale(1.05);
+}
+
+.room-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.room-title {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.room-price {
+    font-size: 18px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.booking-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.booking-button:hover {
+    background-color: #66bb6a;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .room-section {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .room-section {
+        width: calc(100% - 40px);
+    }
+
+    .room-title {
+        font-size: 18px;
+    }
+
+    .room-price {
+        font-size: 16px;
+    }
+}
+
+/* Booking Form Styles */
+.container {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+select,
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #34495e;
+    transition: border-color 0.3s;
+}
+
+select:focus,
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.price-display {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f1f8e9;
+    border-radius: 8px;
+    border: 1px solid #dcedc8;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Progress Indicator Styles */
+.progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.step {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.step.completed {
+    border-bottom: 2px solid #4CAF50;
+    font-weight: bold;
+}
+/* Align labels and inputs horizontally */
+.form-group,
+.tooltip {
+    display: flex; /* Arrange items in a row */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Space between label and input */
+    margin-bottom: 20px; /* Maintain space between fields */
+}
+
+label {
+    flex: 1; /* Adjust label width */
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
+}
+
+select,
+input[type="text"],
+input[type="date"] {
+    flex: 2; /* Make inputs and dropdowns larger than labels */
+    padding: 12px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #34495e;
+    transition: border-color 0.3s;
+}
+
+/* Focus styling for better interaction */
+select:focus,
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Tooltip positioning remains intact */
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.button-container {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add space above the button */
+}

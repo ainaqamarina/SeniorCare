@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('../images/seniorcarebg3.png') no-repeat center center / cover;
+    background-size: cover;
+}
+
+/* Gray Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(128, 128, 128, 0.5);
+    z-index: 0;
+}
+
+/* Login Container */
+.login-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Login Form */
+.login-form {
+    background: rgba(255, 255, 255, 0.5); /* More transparent background */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 400px; /* Adjusted width for login form */
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+    font-weight: 600; /* Make the heading bold */
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 12px 30px; /* Padding for height and width */
+    background: #658735; /* Background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 50px; /* Large border-radius for pill shape */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Font size */
+    font-weight: 700; /* Font weight */
+}
+
+.btn-submit:hover {
+    background: #c7ddb5; /* Background color on hover */
+    color: #658735; /* Text color on hover */
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    padding: 20px 45px;
+    background-color: rgba(101, 135, 53, 0.8); /* Slightly transparent background */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+li {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+}
+
+li a:hover {
+    color: black;
+    text-shadow: 0 0 10px rgba(101, 135, 53, 0.8), 0 0 20px rgba(101, 135, 53, 0.6);
+}
+
